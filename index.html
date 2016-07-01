@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+
+	<style>
+		.taResultColor {
+			background-color: #00BCD4;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Simple header with scrollable tabs. -->
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	  <header class="mdl-layout__header">
+	    <div class="mdl-layout__header-row">
+	      <!-- Title -->
+	      <span class="mdl-layout-title">Title</span>
+	    </div>
+	    <!-- Tabs -->
+	    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+	      <a href="#scroll-tab-1" class="mdl-layout__tab">assigiação de Tarefas</a>
+	      <a href="#scroll-tab-2" class="mdl-layout__tab">Mochila Fracionária</a>
+	      <a href="#scroll-tab-3" class="mdl-layout__tab is-active">Mochila Booleana</a>
+	    </div>
+	  </header>
+	  <!-- <div class="mdl-layout__drawer">
+	    <span class="mdl-layout-title">Trabalho 2 - PAA</span>
+	  </div> -->
+	  <main class="mdl-layout__content">
+	    <section class="mdl-layout__tab-panel" id="scroll-tab-1">
+	      <div class="page-content">
+					<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--4-col">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="num-tasks" name="num-tasks">
+						    <label class="mdl-textfield__label" for="num-tasks">Quantas tarefas?</label>
+						    <span class="mdl-textfield__error">Não foi digitado um número</span>
+						  </div>
+
+						  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="num-workers" name="num-workers">
+						    <label class="mdl-textfield__label" for="num-workers">Quantas pessoas?</label>
+						    <span class="mdl-textfield__error">Não foi digitado um número</span>
+						  </div>
+
+							<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btn-start">
+							  Iniciar Matriz
+							</button>
+						</div>
+						<div class="mdl-cell mdl-cell--8-col" style="padding: 20px 16px;">
+							<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btn-calculate">
+							  Calcular
+							</button>
+
+							<table class="mdl-data-table" id="table-tasks-assig">
+								<thead>
+									<tr>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+
+							<span id="taTotalCostResult"></span>
+						</div>
+					</div>
+	      </div>
+	    </section>
+
+	    <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+	    	<div class="mdl-grid">
+	    		<div class="mdl-cell mdl-cell--4-col">
+	    			<h4>Lista de itens</h4>
+	    			<ul class="mdl-list" id="itens-list" style="overflow-y: auto; height: 400px;">
+
+	    			</ul>
+	    		</div>
+
+	    		<div class="mdl-cell mdl-cell--4-col">
+	    			<h4>Insira novo item</h4>
+
+						<form id="form-knap-frac">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						    <input class="mdl-textfield__input" type="text" id="itemName" name="itemName">
+						    <label class="mdl-textfield__label" for="itemName">Nome do item</label>
+						  </div>
+
+						  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="itemValue" name="itemValue">
+						    <label class="mdl-textfield__label" for="itemValue">Valor do item</label>
+						    <span class="mdl-textfield__error">Não foi digitado um número</span>
+						  </div>
+
+						  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="itemWeight" name="itemWeight">
+						    <label class="mdl-textfield__label" for="itemWeight">Peso do item</label>
+						    <span class="mdl-textfield__error">Não foi digitado um número</span>
+						  </div>
+
+							<div>
+							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btn-add">
+								  Adicionar
+								</button>
+							</div>
+						</form>
+	    		</div>
+
+	    		<div class="mdl-cell mdl-cell--4-col">
+	    			<h4>Resultado</h4>
+
+	    			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="knap-weight" name="knap-weight">
+					    <label class="mdl-textfield__label" for="knap-weight">Peso da mochila</label>
+					    <span class="mdl-textfield__error">Não foi digitado um número</span>
+					  </div>
+
+	    			<div>
+						  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btn-calculate-knap">
+							  Calcular
+							</button>
+						</div>
+
+						<ul id="itens-list-result">
+
+						</ul>
+	    		</div>
+	    	</div>
+	    </section>
+
+	    <section class="mdl-layout__tab-panel is-active" id="scroll-tab-3">
+	    	<div class="mdl-grid">
+	    		<div class="mdl-cell mdl-cell--4-col">
+	    			<h4>Lista de itens</h4>
+	    			<ul class="mdl-list" id="itens-list-bool" style="overflow-y: auto; height: 400px;">
+
+	    			</ul>
+	    		</div>
+
+	    		<div class="mdl-cell mdl-cell--4-col">
+	    			<h4>Insira novo item</h4>
+
+						<form id="form-knap-bool">
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						    <input class="mdl-textfield__input" type="text" id="itemNameBool" name="itemNameBool">
+						    <label class="mdl-textfield__label" for="itemNameBool">Nome do item</label>
+						  </div>
+
+						  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*?" id="itemValueBool" name="itemValueBool">
+						    <label class="mdl-textfield__label" for="itemValueBool">Valor do item</label>
+						    <span class="mdl-textfield__error">Não foi digitado um número</span>
+						  </div>
+
+						  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*?" id="itemWeightBool" name="itemWeightBool">
+						    <label class="mdl-textfield__label" for="itemWeightBool">Peso do item</label>
+						    <span class="mdl-textfield__error">Não foi digitado um número</span>
+						  </div>
+
+							<div>
+							  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btn-add-bool">
+								  Adicionar
+								</button>
+							</div>
+						</form>
+	    		</div>
+
+	    		<div class="mdl-cell mdl-cell--4-col">
+	    			<h4>Resultado</h4>
+
+	    			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*?" id="knap-weight-bool" name="knap-weight-bool">
+					    <label class="mdl-textfield__label" for="knap-weight-bool">Peso da mochila</label>
+					    <span class="mdl-textfield__error">Não foi digitado um número</span>
+					  </div>
+
+	    			<div>
+						  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btn-calculate-knap-bool">
+							  Calcular
+							</button>
+						</div>
+
+						<ul id="itens-list-result-bool">
+
+						</ul>
+	    		</div>
+	    	</div>
+	    </section>
+	  </main>
+	</div>
+
+	<script src="jquery.js"></script>
+	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+	<script src="dataTables.min.js"></script>
+	<script src="dataTables.material.min.js"></script>
+	<script src="template.js"></script>
+	<script src="TaskAssig.js"></script>
+	<script src="Item.js"></script>
+	<script src="KnapFrac.js"></script>
+	<script src="KnapBool.js"></script>
+	<script src="mainui.js"></script>
+	<script src="script.js"></script>
+
+	<script>
+		mainui.init();
+	</script>
+
+</body>
+</html>
