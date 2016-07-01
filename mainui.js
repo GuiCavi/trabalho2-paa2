@@ -140,7 +140,7 @@ MainUI.prototype.init = function() {
 
 		var values = $(this.$buttonAddBool).closest('form').serializeArray(),
 				_values = {};
-
+console.log(values);
 		for (var i = 0; i < values.length; i++) {
 			_values[values[i].name] = values[i].value;
 		}
@@ -244,10 +244,10 @@ MainUI.prototype.createListItem = function(_values, target, bool) {
 	var $primaryContent = document.createElement('span');
 	$primaryContent.classList.add('mdl-list__item-primary-content');
 	$primaryContent.innerHTML =
-		'<span class="itemName'+(bool ? 'Bool' : '' )+'">'+ _values['itemName'] +'</span>' +
+		'<span class="itemName'+(bool ? 'Bool' : '' )+'">'+ _values['itemName'+(bool ? 'Bool' : '' )] +'</span>' +
 		'<span class="mdl-list__item-text-body">' +
-			'<span>Peso: </span><span class="itemWeight'+(bool ? 'Bool' : '' )+'">'+ _values['itemWeight'] + '</span><br />' +
-			'<span>Valor: </span><span class="itemValue'+(bool ? 'Bool' : '' )+'">' + _values['itemValue'] + '</span><br />' +
+			'<span>Peso: </span><span class="itemWeight'+(bool ? 'Bool' : '' )+'">'+ _values['itemWeight'+(bool ? 'Bool' : '' )] + '</span><br />' +
+			'<span>Valor: </span><span class="itemValue'+(bool ? 'Bool' : '' )+'">' + _values['itemValue'+(bool ? 'Bool' : '' )] + '</span><br />' +
 		'</span>';
 
 	var $secondaryAction = document.createElement('a');
