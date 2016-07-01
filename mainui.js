@@ -20,6 +20,8 @@ var MainUI = function() {
 	this.$buttonAddBool = document.getElementById('btn-add-bool'); // BUTTON FOR ADDING ITENS TO KNAP BOOL ITENS LIST
 	this.$buttonCalculateKnapBool = document.getElementById('btn-calculate-knap-bool'); // BUTTON FOR CALCULATE KNAP BOOL
 	this.$listItensResultBool = document.getElementById('itens-list-result-bool'); // LIST FOR DISPLAY RESULT KNAP BOOL
+
+	this.$buttonCalculateMaxSub = document.getElementById('btn-calculate-max-sub'); // BUTTON FOR CALCULATE MAX SUB
 }
 
 MainUI.prototype.init = function() {
@@ -188,6 +190,18 @@ console.log(values);
 		this.$listItensResultBool.appendChild($liValue);
 	});
 	//------------------------------
+
+	this.$buttonCalculateMaxSub.addEventListener('click', (e) => {
+		var first = document.getElementById('first-string').value,
+				second = document.getElementById('second-string').value;
+
+		var ms = new MaxSub();
+		ms.maxSub(first, second);
+
+		document.getElementById('result-max-sub').innerHTML =
+			'<div>Subcadeia comum: '+ms.result+'</div>' +
+			'<div>Tamanho da subcadeia: '+ms.maxSize+'</div>';
+	});
 }
 
 MainUI.prototype.createWorkers = function(numWorkers, numTasks) {

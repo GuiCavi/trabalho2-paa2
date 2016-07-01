@@ -24,9 +24,10 @@
 	    </div>
 	    <!-- Tabs -->
 	    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-	      <a href="#scroll-tab-1" class="mdl-layout__tab">assigiação de Tarefas</a>
+	      <a href="#scroll-tab-1" class="mdl-layout__tab">Associação de Tarefas</a>
 	      <a href="#scroll-tab-2" class="mdl-layout__tab">Mochila Fracionária</a>
-	      <a href="#scroll-tab-3" class="mdl-layout__tab is-active">Mochila Booleana</a>
+	      <a href="#scroll-tab-3" class="mdl-layout__tab">Mochila Booleana</a>
+	      <a href="#scroll-tab-4" class="mdl-layout__tab is-active">Subsequêcia Comum</a>
 	    </div>
 	  </header>
 	  <!-- <div class="mdl-layout__drawer">
@@ -35,6 +36,7 @@
 	  <main class="mdl-layout__content">
 	    <section class="mdl-layout__tab-panel" id="scroll-tab-1">
 	      <div class="page-content">
+					<h3>Associação de Tarefas</h3>
 					<div class="mdl-grid">
 						<div class="mdl-cell mdl-cell--4-col">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -74,6 +76,7 @@
 	    </section>
 
 	    <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+    		<h3>Mochila Fracionária</h3>
 	    	<div class="mdl-grid">
 	    		<div class="mdl-cell mdl-cell--4-col">
 	    			<h4>Lista de itens</h4>
@@ -133,7 +136,8 @@
 	    	</div>
 	    </section>
 
-	    <section class="mdl-layout__tab-panel is-active" id="scroll-tab-3">
+	    <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+    		<h3>Mochila Booleana</h3>
 	    	<div class="mdl-grid">
 	    		<div class="mdl-cell mdl-cell--4-col">
 	    			<h4>Lista de itens</h4>
@@ -192,6 +196,33 @@
 	    		</div>
 	    	</div>
 	    </section>
+
+	    <section class="mdl-layout__tab-panel is-active" id="scroll-tab-4">
+    		<h3>Subsequência Comum Máxima</h3>
+	    	<div class="mdl-grid">
+	    		<div class="mdl-cell mdl-cell--4-col">
+	    			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					    <input class="mdl-textfield__input" type="text" id="first-string" name="first-string">
+					    <label class="mdl-textfield__label" for="first-string">Primeira cadeia</label>
+					  </div>
+
+					  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					    <input class="mdl-textfield__input" type="text" id="second-string" name="second-string">
+					    <label class="mdl-textfield__label" for="second-string">Segunda cadeia</label>
+					  </div>
+
+					  <div>
+						  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btn-calculate-max-sub">
+							  Calcular
+							</button>
+						</div>
+	    		</div>
+
+	    		<div class="mdl-cell mdl-cell--4-col">
+	    			<div id="result-max-sub"></div>
+	    		</div>
+    		</div>
+  		</section>
 	  </main>
 	</div>
 
@@ -204,6 +235,7 @@
 	<script src="Item.js"></script>
 	<script src="KnapFrac.js"></script>
 	<script src="KnapBool.js"></script>
+	<script src="MaxSub.js"></script>
 	<script src="mainui.js"></script>
 	<script src="script.js"></script>
 
